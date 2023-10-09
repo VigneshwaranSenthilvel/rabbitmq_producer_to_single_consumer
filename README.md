@@ -1,38 +1,52 @@
-# EDUBOT-UI
+# RabbitMQ With Elixir
 
-AI chat application build in reactjs
+Implementing RabbitMQ with one Producer ( Sender ) -> one Consumer ( Receiver )
 
 ## Dependencies
 
 - [ASDF](https://asdf-vm.com/guide/getting-started.html)
+- [RabbitMQ](https://www.rabbitmq.com/download.html)
 
 ## Run Locally
 
 Clone the project
 
 ```bash
-  git clone https://github.com/VigneshwaranSenthilvel/edubot_ui.git
+  git clone https://github.com/VigneshwaranSenthilvel/rabbitmq_producer_to_single_consumer.git
 ```
 
-Go to the project directory
+Go to the project directory producer and consumer in differemt terminal
 
 ```bash
-  cd edubot_ui
+  terminal1: cd rabbitmq_producer_to_single_consumer/producer
+  terminal2: cd rabbitmq_producer_to_single_consumer/consumer
 ```
 
 Install dependencies
 
 ```bash
   asdf install
-  npm install
 ```
 
 Start the server
 
 ```bash
-  npm run
+  mix deps.get
+  iex -S mix
 ```
 
-## Demo in browser
+## Terminal 1
 
-http://localhost:3000
+Send a message to the queue
+
+```bash
+  Producer.add("Your Custom Message")
+```
+
+## Terminal 2
+
+Receive a message from queue
+
+```bash
+  [x] Received Your Custom Message
+```
